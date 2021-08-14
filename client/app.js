@@ -1,3 +1,4 @@
+//Get number of bathrooms
 function getBathValue() {
   var uiBathrooms = document.getElementsByName("uiBathrooms");
   for(var i in uiBathrooms) {
@@ -5,9 +6,10 @@ function getBathValue() {
         return parseInt(i)+1;
     }
   }
-  return -1; // Invalid Value
+  return -1; 
 }
 
+//Get BHK Value
 function getBHKValue() {
   var uiBHK = document.getElementsByName("uiBHK");
   for(var i in uiBHK) {
@@ -15,9 +17,10 @@ function getBHKValue() {
         return parseInt(i)+1;
     }
   }
-  return -1; // Invalid Value
+  return -1; 
 }
 
+//Post price when Estimate Price(submit) is clicked
 function onClickedEstimatePrice() {
   console.log("Estimate price button clicked");
   var sqft = document.getElementById("uiSqft");
@@ -39,12 +42,12 @@ function onClickedEstimatePrice() {
       console.log(status);
   });
 }
-
+//Load the location values dynamically when the html file is opened
 function onPageLoad() {
   console.log( "document loaded" );
   var url = "http://127.0.0.1:5000/get_location_names"; 
   $.get(url,function(data, status) {
-      console.log("got response for get_location_names request");
+      //console.log("got response for get_location_names request");
       if(data) {
           var locations = data.locations;
           var uiLocations = document.getElementById("uiLocations");
